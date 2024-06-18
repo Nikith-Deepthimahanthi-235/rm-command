@@ -24,7 +24,7 @@ yargs.command({
 })
 const remove = (filePath,recursion) => {
   if (!fs.existsSync(filePath)) {
-    console.log("brrr");
+    console.log(chalk.red.inverse("no file found in da path"));
     return;
   }
 
@@ -32,7 +32,7 @@ const remove = (filePath,recursion) => {
 
   if (stats.isDirectory()) {
     if (!recursion) {
-      console.log(chalk.red.inverse("grr"))
+      console.log(chalk.red.inverse("recursive deletion is not enabled"))
       return;
     }
     // Recursively remove directory contents
